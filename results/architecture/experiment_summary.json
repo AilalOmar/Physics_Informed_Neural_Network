@@ -1,0 +1,74 @@
+{
+    "experiment": "architecture",
+    "models": {
+        "Model_A_Shallow": {
+            "layers": [
+                2,
+                20,
+                20,
+                1
+            ],
+            "parameters": 501,
+            "description": "Shallow (2 hidden, 20 neurons)",
+            "training_time": 60.352060079574585,
+            "final_total_loss": 0.0007543537067249417,
+            "final_data_loss": 0.00015882360457908362,
+            "final_bc_loss": 9.56855874392204e-05,
+            "final_ic_loss": 0.00029798952164128423,
+            "final_pde_loss": 0.00020185494213365018
+        },
+        "Model_B_Medium": {
+            "layers": [
+                2,
+                50,
+                50,
+                50,
+                1
+            ],
+            "parameters": 5301,
+            "description": "Medium (3 hidden, 50 neurons)",
+            "training_time": 176.8624563217163,
+            "final_total_loss": 0.0002167381317121908,
+            "final_data_loss": 2.166800004488323e-05,
+            "final_bc_loss": 2.85643673123559e-05,
+            "final_ic_loss": 5.751193384639919e-05,
+            "final_pde_loss": 0.00010899383050855249
+        },
+        "Model_C_Deep": {
+            "layers": [
+                2,
+                30,
+                30,
+                30,
+                30,
+                30,
+                1
+            ],
+            "parameters": 3841,
+            "description": "Deep (5 hidden, 30 neurons)",
+            "training_time": 187.27343678474426,
+            "final_total_loss": 2.2651205654256046e-05,
+            "final_data_loss": 1.396151105836907e-06,
+            "final_bc_loss": 1.2289012829569401e-06,
+            "final_ic_loss": 4.173317847744329e-06,
+            "final_pde_loss": 1.5852834621910006e-05
+        },
+        "Model_D_Wide": {
+            "layers": [
+                2,
+                100,
+                100,
+                1
+            ],
+            "parameters": 10501,
+            "description": "Wide (2 hidden, 100 neurons)",
+            "training_time": 237.13427066802979,
+            "final_total_loss": 0.00017038999067153782,
+            "final_data_loss": 1.7320608094451018e-05,
+            "final_bc_loss": 1.7240621673408896e-05,
+            "final_ic_loss": 5.273063652566634e-05,
+            "final_pde_loss": 8.309812983497977e-05
+        }
+    },
+    "best_model": "Model_C_Deep"
+}

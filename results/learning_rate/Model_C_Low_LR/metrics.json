@@ -1,0 +1,25 @@
+{
+    "model_name": "Model_C_Low_LR (Low learning rate)",
+    "architecture": [
+        2,
+        50,
+        50,
+        50,
+        1
+    ],
+    "activation": "tanh",
+    "loss_weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+    ],
+    "learning_rate": 0.0001,
+    "training_time": 151.2747106552124,
+    "final_total_loss": 0.004685004707425833,
+    "final_data_loss": 0.0009392182691954076,
+    "final_bc_loss": 0.0007046983228065073,
+    "final_ic_loss": 0.0013705817982554436,
+    "final_pde_loss": 0.0016705063171684742,
+    "total_epochs": 2000
+}

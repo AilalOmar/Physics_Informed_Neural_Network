@@ -1,0 +1,167 @@
+================================================================================
+         PHYSICS-INFORMED NEURAL NETWORK (PINN) FOR 1D HEAT EQUATION
+                            ALGORITHM / PSEUDO-CODE
+================================================================================
+
+PROBLEM DEFINITION:
+    PDE: ∂u/∂t = c² ∂²u/∂x²    (Heat Equation)
+    Domain: x ∈ [0,1], t ∈ [0,1]
+    Initial Condition: u(0,x) = sin(πx)
+    Boundary Conditions: u(t,0) = 0, u(t,1) = 0
+
+================================================================================
+ALGORITHM STRUCTURE
+================================================================================
+
+1. INITIALIZATION
+   ├── Set random seed for reproducibility
+   ├── Define hyperparameters:
+   │   ├── Architecture: [2, 50, 50, 50, 1]  (input → hidden layers → output)
+   │   ├── Activation function: tanh
+   │   ├── Loss weights: [w_data, w_bc, w_ic, w_pde] = [1, 1, 1, 1]
+   │   ├── Learning rate: 0.001
+   │   └── Epochs: 2000
+   └── Initialize neural network with Xavier weights
+
+2. NEURAL NETWORK ARCHITECTURE
+   ├── Input Layer: 2 neurons (t, x)
+   ├── Hidden Layers: 3 layers × 50 neurons each
+   │   └── Each layer: Linear → Tanh activation
+   └── Output Layer: 1 neuron (u prediction)
+
+   Forward Pass:
+   ┌─────────────────────────────────────────────────┐
+   │  INPUT (t,x) → [Linear→Tanh] → [Linear→Tanh]   │
+   │             → [Linear→Tanh] → Linear → OUTPUT u │
+   └─────────────────────────────────────────────────┘
+
+3. TRAINING DATA GENERATION
+   ├── Data points: Random (t,x) pairs with analytical solution
+   ├── Boundary points: (t,0) and (t,1) where u=0
+   ├── Initial points: (0,x) where u=sin(πx)
+   └── Collocation points: Random interior points for PDE
+
+4. LOSS FUNCTION COMPUTATION
+   │
+   ├── L_data = MSE( u_predicted, u_analytical )
+   │
+   ├── L_bc = MSE( u_predicted(t,0), 0 ) + MSE( u_predicted(t,1), 0 )
+   │
+   ├── L_ic = MSE( u_predicted(0,x), sin(πx) )
+   │
+   ├── L_pde = MSE( ∂u/∂t - c²∂²u/∂x², 0 )
+   │           ↑
+   │           Computed using automatic differentiation
+   │
+   └── L_total = w_data·L_data + w_bc·L_bc + w_ic·L_ic + w_pde·L_pde
+
+5. PDE RESIDUAL COMPUTATION (Automatic Differentiation)
+   ┌────────────────────────────────────────────────────┐
+   │  Given: u = NN(t,x)                                │
+   │                                                    │
+   │  Step 1: Compute ∂u/∂t using autograd             │
+   │  Step 2: Compute ∂u/∂x using autograd             │
+   │  Step 3: Compute ∂²u/∂x² using autograd           │
+   │  Step 4: Residual = ∂u/∂t - c²·∂²u/∂x²           │
+   └────────────────────────────────────────────────────┘
+
+6. TRAINING LOOP
+   ┌────────────────────────────────────────────────────┐
+   │  FOR epoch = 1 TO 2000:                           │
+   │      │                                            │
+   │      ├── Forward pass: predict u for all points   │
+   │      │                                            │
+   │      ├── Compute all loss components              │
+   │      │                                            │
+   │      ├── Compute total weighted loss              │
+   │      │                                            │
+   │      ├── Backward pass: compute gradients         │
+   │      │                                            │
+   │      ├── Update weights using Adam optimizer      │
+   │      │                                            │
+   │      └── Record loss history                      │
+   │                                                    │
+   └────────────────────────────────────────────────────┘
+
+7. OUTPUT GENERATION
+   ├── Training loss curves (all components)
+   ├── Solution heatmap u(t,x)
+   ├── Solution snapshots at t = [0, 0.25, 0.5, 0.75, 1.0]
+   ├── PDE residual visualization
+   └── Save model and metrics
+
+================================================================================
+SIMPLIFIED PSEUDO-CODE
+================================================================================
+
+ALGORITHM PINN_HeatEquation:
+
+    INPUT: Domain [0,1]×[0,1], c=0.1, epochs=2000
+    OUTPUT: Trained model, predictions, visualizations
+
+    // STEP 1: Initialize
+    network ← CreateNN([2, 50, 50, 50, 1], activation=tanh)
+    optimizer ← Adam(network.parameters, lr=0.001)
+
+    // STEP 2: Generate training points
+    (t_data, x_data, u_data) ← SampleDataPoints()
+    (t_bc, x_bc, u_bc) ← SampleBoundaryPoints()
+    (t_ic, x_ic, u_ic) ← SampleInitialPoints()
+    (t_pde, x_pde) ← SampleCollocationPoints()
+
+    // STEP 3: Training loop
+    FOR epoch = 1 TO epochs DO:
+
+        // Predict
+        u_pred_data ← network(t_data, x_data)
+        u_pred_bc ← network(t_bc, x_bc)
+        u_pred_ic ← network(t_ic, x_ic)
+
+        // Compute losses
+        L_data ← MeanSquaredError(u_pred_data, u_data)
+        L_bc ← MeanSquaredError(u_pred_bc, u_bc)
+        L_ic ← MeanSquaredError(u_pred_ic, u_ic)
+        L_pde ← ComputePDEResidual(network, t_pde, x_pde)
+
+        // Total loss
+        L_total ← w1·L_data + w2·L_bc + w3·L_ic + w4·L_pde
+
+        // Update network
+        optimizer.zero_grad()
+        L_total.backward()
+        optimizer.step()
+
+    END FOR
+
+    // STEP 4: Generate outputs
+    GeneratePlots(network)
+    SaveModel(network)
+
+    RETURN network
+
+END ALGORITHM
+
+================================================================================
+KEY CONCEPTS
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│   PINN = Standard Neural Network + Physics Constraints                      │
+│                                                                             │
+│   ┌───────────────┐         ┌───────────────┐         ┌───────────────┐   │
+│   │   Data Loss   │    +    │  BC/IC Loss   │    +    │   PDE Loss    │   │
+│   │  (if known)   │         │ (constraints) │         │  (physics)    │   │
+│   └───────────────┘         └───────────────┘         └───────────────┘   │
+│          ↓                         ↓                         ↓             │
+│   Fit known data          Satisfy boundary          Satisfy governing      │
+│                           conditions                equation                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+AUTOMATIC DIFFERENTIATION:
+    - No need for finite differences
+    - Exact derivatives through computational graph
+    - PyTorch autograd computes ∂u/∂t, ∂u/∂x, ∂²u/∂x² automatically
+
+================================================================================

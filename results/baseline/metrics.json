@@ -1,0 +1,25 @@
+{
+    "model_name": "Baseline",
+    "architecture": [
+        2,
+        50,
+        50,
+        50,
+        1
+    ],
+    "activation": "tanh",
+    "loss_weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+    ],
+    "learning_rate": 0.001,
+    "training_time": 156.80357551574707,
+    "final_total_loss": 0.0002167381317121908,
+    "final_data_loss": 2.166800004488323e-05,
+    "final_bc_loss": 2.85643673123559e-05,
+    "final_ic_loss": 5.751193384639919e-05,
+    "final_pde_loss": 0.00010899383050855249,
+    "total_epochs": 2000
+}

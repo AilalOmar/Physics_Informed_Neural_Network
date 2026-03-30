@@ -1,0 +1,24 @@
+{
+    "model_name": "Model_D_Wide (Wide (2 hidden, 100 neurons))",
+    "architecture": [
+        2,
+        100,
+        100,
+        1
+    ],
+    "activation": "tanh",
+    "loss_weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+    ],
+    "learning_rate": 0.001,
+    "training_time": 237.13427066802979,
+    "final_total_loss": 0.00017038999067153782,
+    "final_data_loss": 1.7320608094451018e-05,
+    "final_bc_loss": 1.7240621673408896e-05,
+    "final_ic_loss": 5.273063652566634e-05,
+    "final_pde_loss": 8.309812983497977e-05,
+    "total_epochs": 2000
+}

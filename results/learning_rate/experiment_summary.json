@@ -1,0 +1,36 @@
+{
+    "experiment": "learning_rate",
+    "models": {
+        "Model_A_High_LR": {
+            "learning_rate": 0.01,
+            "description": "High learning rate",
+            "training_time": 159.51667189598083,
+            "final_total_loss": 3.628146805567667e-05,
+            "final_data_loss": 1.4797650464970502e-06,
+            "final_bc_loss": 4.018396793981083e-06,
+            "final_ic_loss": 3.626090801844839e-06,
+            "final_pde_loss": 2.7157213480677456e-05
+        },
+        "Model_B_Medium_LR": {
+            "learning_rate": 0.001,
+            "description": "Medium learning rate (baseline)",
+            "training_time": 141.81737661361694,
+            "final_total_loss": 0.0002167381317121908,
+            "final_data_loss": 2.166800004488323e-05,
+            "final_bc_loss": 2.85643673123559e-05,
+            "final_ic_loss": 5.751193384639919e-05,
+            "final_pde_loss": 0.00010899383050855249
+        },
+        "Model_C_Low_LR": {
+            "learning_rate": 0.0001,
+            "description": "Low learning rate",
+            "training_time": 151.2747106552124,
+            "final_total_loss": 0.004685004707425833,
+            "final_data_loss": 0.0009392182691954076,
+            "final_bc_loss": 0.0007046983228065073,
+            "final_ic_loss": 0.0013705817982554436,
+            "final_pde_loss": 0.0016705063171684742
+        }
+    },
+    "best_model": "Model_A_High_LR"
+}

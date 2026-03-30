@@ -1,0 +1,25 @@
+{
+    "model_name": "Model_B_Physics (Physics-heavy (PDE x10))",
+    "architecture": [
+        2,
+        50,
+        50,
+        50,
+        1
+    ],
+    "activation": "tanh",
+    "loss_weights": [
+        1.0,
+        1.0,
+        1.0,
+        10.0
+    ],
+    "learning_rate": 0.001,
+    "training_time": 150.16890168190002,
+    "final_total_loss": 3.3076750696636736e-05,
+    "final_data_loss": 1.0555399967415724e-06,
+    "final_bc_loss": 3.160070036756224e-06,
+    "final_ic_loss": 3.1377812774735503e-06,
+    "final_pde_loss": 2.5723359158291714e-06,
+    "total_epochs": 2000
+}

@@ -1,0 +1,66 @@
+{
+    "experiment": "loss_weights",
+    "models": {
+        "Model_A_Equal": {
+            "loss_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "description": "Equal weights",
+            "training_time": 145.9845187664032,
+            "final_total_loss": 0.0002167381317121908,
+            "final_data_loss": 2.166800004488323e-05,
+            "final_bc_loss": 2.85643673123559e-05,
+            "final_ic_loss": 5.751193384639919e-05,
+            "final_pde_loss": 0.00010899383050855249
+        },
+        "Model_B_Physics": {
+            "loss_weights": [
+                1.0,
+                1.0,
+                1.0,
+                10.0
+            ],
+            "description": "Physics-heavy (PDE x10)",
+            "training_time": 150.16890168190002,
+            "final_total_loss": 3.3076750696636736e-05,
+            "final_data_loss": 1.0555399967415724e-06,
+            "final_bc_loss": 3.160070036756224e-06,
+            "final_ic_loss": 3.1377812774735503e-06,
+            "final_pde_loss": 2.5723359158291714e-06
+        },
+        "Model_C_Boundary": {
+            "loss_weights": [
+                1.0,
+                10.0,
+                10.0,
+                1.0
+            ],
+            "description": "Boundary-heavy (BC, IC x10)",
+            "training_time": 159.81047677993774,
+            "final_total_loss": 0.001741558313369751,
+            "final_data_loss": 8.73711978783831e-05,
+            "final_bc_loss": 2.0037839931319468e-05,
+            "final_ic_loss": 9.419932757737115e-05,
+            "final_pde_loss": 0.0005118154222145677
+        },
+        "Model_D_Initial": {
+            "loss_weights": [
+                1.0,
+                1.0,
+                10.0,
+                1.0
+            ],
+            "description": "Initial-heavy (IC x10)",
+            "training_time": 175.99111890792847,
+            "final_total_loss": 0.001190839451737702,
+            "final_data_loss": 5.440443419502117e-05,
+            "final_bc_loss": 0.00010341159941162914,
+            "final_ic_loss": 7.11043830960989e-05,
+            "final_pde_loss": 0.0003219796053599566
+        }
+    },
+    "best_model": "Model_B_Physics"
+}

@@ -1,0 +1,25 @@
+{
+    "model_name": "Model_A_High_LR (High learning rate)",
+    "architecture": [
+        2,
+        50,
+        50,
+        50,
+        1
+    ],
+    "activation": "tanh",
+    "loss_weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+    ],
+    "learning_rate": 0.01,
+    "training_time": 159.51667189598083,
+    "final_total_loss": 3.628146805567667e-05,
+    "final_data_loss": 1.4797650464970502e-06,
+    "final_bc_loss": 4.018396793981083e-06,
+    "final_ic_loss": 3.626090801844839e-06,
+    "final_pde_loss": 2.7157213480677456e-05,
+    "total_epochs": 2000
+}

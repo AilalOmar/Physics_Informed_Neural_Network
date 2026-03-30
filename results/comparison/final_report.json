@@ -1,0 +1,112 @@
+{
+    "title": "PINN Heat Equation Parameter Study Report",
+    "experiments": {
+        "baseline": "Reference model with standard configuration",
+        "loss_weights": "4 configurations testing weight impact",
+        "architecture": "4 configurations testing network depth/width",
+        "learning_rate": "3 configurations testing learning rate"
+    },
+    "all_models_ranked": [
+        {
+            "rank": 1,
+            "name": "Model_C_Deep",
+            "category": "Architecture",
+            "final_loss": 2.2651205654256046e-05,
+            "training_time": 187.27343678474426
+        },
+        {
+            "rank": 2,
+            "name": "Model_B_Physics",
+            "category": "Loss Weights",
+            "final_loss": 3.3076750696636736e-05,
+            "training_time": 150.16890168190002
+        },
+        {
+            "rank": 3,
+            "name": "Model_A_High_LR",
+            "category": "Learning Rate",
+            "final_loss": 3.628146805567667e-05,
+            "training_time": 159.51667189598083
+        },
+        {
+            "rank": 4,
+            "name": "Model_D_Wide",
+            "category": "Architecture",
+            "final_loss": 0.00017038999067153782,
+            "training_time": 237.13427066802979
+        },
+        {
+            "rank": 5,
+            "name": "Baseline",
+            "category": "Reference",
+            "final_loss": 0.0002167381317121908,
+            "training_time": 156.80357551574707
+        },
+        {
+            "rank": 6,
+            "name": "Model_A_Equal",
+            "category": "Loss Weights",
+            "final_loss": 0.0002167381317121908,
+            "training_time": 145.9845187664032
+        },
+        {
+            "rank": 7,
+            "name": "Model_B_Medium",
+            "category": "Architecture",
+            "final_loss": 0.0002167381317121908,
+            "training_time": 176.8624563217163
+        },
+        {
+            "rank": 8,
+            "name": "Model_B_Medium_LR",
+            "category": "Learning Rate",
+            "final_loss": 0.0002167381317121908,
+            "training_time": 141.81737661361694
+        },
+        {
+            "rank": 9,
+            "name": "Model_A_Shallow",
+            "category": "Architecture",
+            "final_loss": 0.0007543537067249417,
+            "training_time": 60.352060079574585
+        },
+        {
+            "rank": 10,
+            "name": "Model_D_Initial",
+            "category": "Loss Weights",
+            "final_loss": 0.001190839451737702,
+            "training_time": 175.99111890792847
+        },
+        {
+            "rank": 11,
+            "name": "Model_C_Boundary",
+            "category": "Loss Weights",
+            "final_loss": 0.001741558313369751,
+            "training_time": 159.81047677993774
+        },
+        {
+            "rank": 12,
+            "name": "Model_C_Low_LR",
+            "category": "Learning Rate",
+            "final_loss": 0.004685004707425833,
+            "training_time": 151.2747106552124
+        }
+    ],
+    "best_per_experiment": {
+        "loss_weights": "Model_B_Physics",
+        "architecture": "Model_C_Deep",
+        "learning_rate": "Model_A_High_LR"
+    },
+    "overall_best": {
+        "name": "Model_C_Deep",
+        "experiment": "Architecture",
+        "final_loss": 2.2651205654256046e-05,
+        "training_time": 187.27343678474426,
+        "category": "Architecture"
+    },
+    "parameter_sensitivities": {
+        "Loss Weights": 52.65203735827757,
+        "Architecture": 33.30302670150375,
+        "Learning Rate": 129.12941395415248
+    }
+}

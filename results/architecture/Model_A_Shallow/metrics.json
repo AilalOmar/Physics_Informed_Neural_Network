@@ -1,0 +1,24 @@
+{
+    "model_name": "Model_A_Shallow (Shallow (2 hidden, 20 neurons))",
+    "architecture": [
+        2,
+        20,
+        20,
+        1
+    ],
+    "activation": "tanh",
+    "loss_weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+    ],
+    "learning_rate": 0.001,
+    "training_time": 60.352060079574585,
+    "final_total_loss": 0.0007543537067249417,
+    "final_data_loss": 0.00015882360457908362,
+    "final_bc_loss": 9.56855874392204e-05,
+    "final_ic_loss": 0.00029798952164128423,
+    "final_pde_loss": 0.00020185494213365018,
+    "total_epochs": 2000
+}

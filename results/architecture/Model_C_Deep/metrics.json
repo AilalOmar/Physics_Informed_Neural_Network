@@ -1,0 +1,27 @@
+{
+    "model_name": "Model_C_Deep (Deep (5 hidden, 30 neurons))",
+    "architecture": [
+        2,
+        30,
+        30,
+        30,
+        30,
+        30,
+        1
+    ],
+    "activation": "tanh",
+    "loss_weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+    ],
+    "learning_rate": 0.001,
+    "training_time": 187.27343678474426,
+    "final_total_loss": 2.2651205654256046e-05,
+    "final_data_loss": 1.396151105836907e-06,
+    "final_bc_loss": 1.2289012829569401e-06,
+    "final_ic_loss": 4.173317847744329e-06,
+    "final_pde_loss": 1.5852834621910006e-05,
+    "total_epochs": 2000
+}

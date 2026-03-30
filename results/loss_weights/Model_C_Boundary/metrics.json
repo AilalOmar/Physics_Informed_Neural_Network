@@ -1,0 +1,25 @@
+{
+    "model_name": "Model_C_Boundary (Boundary-heavy (BC, IC x10))",
+    "architecture": [
+        2,
+        50,
+        50,
+        50,
+        1
+    ],
+    "activation": "tanh",
+    "loss_weights": [
+        1.0,
+        10.0,
+        10.0,
+        1.0
+    ],
+    "learning_rate": 0.001,
+    "training_time": 159.81047677993774,
+    "final_total_loss": 0.001741558313369751,
+    "final_data_loss": 8.73711978783831e-05,
+    "final_bc_loss": 2.0037839931319468e-05,
+    "final_ic_loss": 9.419932757737115e-05,
+    "final_pde_loss": 0.0005118154222145677,
+    "total_epochs": 2000
+}

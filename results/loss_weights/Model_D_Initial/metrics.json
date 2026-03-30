@@ -1,0 +1,25 @@
+{
+    "model_name": "Model_D_Initial (Initial-heavy (IC x10))",
+    "architecture": [
+        2,
+        50,
+        50,
+        50,
+        1
+    ],
+    "activation": "tanh",
+    "loss_weights": [
+        1.0,
+        1.0,
+        10.0,
+        1.0
+    ],
+    "learning_rate": 0.001,
+    "training_time": 175.99111890792847,
+    "final_total_loss": 0.001190839451737702,
+    "final_data_loss": 5.440443419502117e-05,
+    "final_bc_loss": 0.00010341159941162914,
+    "final_ic_loss": 7.11043830960989e-05,
+    "final_pde_loss": 0.0003219796053599566,
+    "total_epochs": 2000
+}
